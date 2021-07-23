@@ -14,12 +14,14 @@ public class Solar {
     }
 
     public Solar(int solarId, String section, int row, int column, int year, SolarMaterial material, String isTracking) {
+        this.solarId = solarId;
         this.section = section;
         this.row = row;
         this.column = column;
         this.year = year;
         this.material = material;
         this.isTracking = isTracking;
+
     }
 
     public int getSolarId() {

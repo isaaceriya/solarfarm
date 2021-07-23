@@ -17,4 +17,6 @@ public interface SolarRepository {
     boolean update(Solar solar) throws DataAccessException;
 
     boolean deleteById(int solarId) throws DataAccessException;
+
+    List<Solar> findBySection(String solar) throws DataAccessException;
 }

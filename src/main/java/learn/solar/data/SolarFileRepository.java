@@ -44,6 +44,17 @@ public class SolarFileRepository implements SolarRepository{
     }
 
     @Override
+    public List<Solar> findBySection(String section) throws DataAccessException {
+        ArrayList<Solar> result = new ArrayList<>();
+        for (Solar solar : findAll()) {
+            if (solar.getSection().equalsIgnoreCase(section)) {
+                result.add(solar);
+            }
+        }
+        return result;
+    }
+
+    @Override
     public Solar findById(int solarId) throws DataAccessException {
         for(Solar solar : findAll()){
             if(solar.getSolarId()== solarId){

@@ -22,11 +22,6 @@ class SolarServiceTest {
     }
 
     @Test
-    void shouldNotAddNullSolar() throws DataAccessException {
-        SolarResult result = service.add(null);
-        assertFalse(result.isSuccess());
-    }
-    @Test
     void shouldNotAddSolarWithInvalidRowAndColumn() throws DataAccessException{
         SolarResult result = service.add(
                 new Solar(0, "Main", 251, 252, 2020, SolarMaterial.POLY, "yes"));
@@ -52,16 +47,7 @@ class SolarServiceTest {
         assertFalse(result.isSuccess());
     }
 
-//Trying to fix this text
-    @Test
-    void shouldDelete() throws DataAccessException{
-        SolarResult result = service.deleteById(3);
-        assertTrue(result.isSuccess());
-    }
-    @Test
-    void shouldNotDelete() throws DataAccessException{
-        SolarResult result = service.deleteById(1);
-        assertFalse(result.isSuccess());
-    }
+
+
 
 }

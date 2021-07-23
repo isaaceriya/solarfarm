@@ -29,14 +29,35 @@ public class View {
         System.out.println("=".repeat(message.length()));
     }
 
+    public String readSection() {
+        return readRequiredString("Section: ");
+    }
     public void displaySolars(List<Solar> solars){
         printHeader("Solars:");
         if(solars.size() == 0){
             System.out.println("No solars found.");
         }else{
             for(Solar s : solars){
-//                System.out.println("ID "+"Section "+ "Row "+ "Column "+ "Year "+"Material "+"Tracking");
+                System.out.println("ID "+"Section "+ "Row "+ "Column "+ "Year "+"Material "+"Tracking");
                 System.out.printf("%s. %s    %s    %s    %s    %s   %s%n",
+                        s.getSolarId(),
+                        s.getSection(),
+                        s.getRow(),
+                        s.getColumn(),
+                        s.getYear(),
+                        s.getMaterial(),
+                        s.getIsTracking());
+            }
+        }
+    }
+
+    public void printPanels(String section, List<Solar> solars) {
+        if (solars == null || solars.size() == 0) {
+            printHeader("No panels in section: " + section);
+        } else {
+            printHeader("Panels in section: " + section);
+            for (Solar s : solars) {
+                System.out.printf("%s. %s, %s, %s  %s, %s, %s%n",
                         s.getSolarId(),
                         s.getSection(),
                         s.getRow(),

@@ -20,7 +20,9 @@ public class SolarService{
         return repository.findByMaterial(material);
     }
 
-
+    public List<Solar> findBySection(String solar) throws DataAccessException {
+        return repository.findBySection(solar);
+    }
 
 
     //add
@@ -175,7 +177,7 @@ public class SolarService{
                 cdteCount > 10 ||
                 cigsCount > 10 ||
                 cisCount > 10){
-            result.addErrorMessage("No room for an astronaut.");
+            result.addErrorMessage("No room for an solar.");
         }
         return result;
 

@@ -26,6 +26,7 @@ public class Controller {
 
     }
 
+
     private void runMenu() throws DataAccessException {
         MenuOption option;
         do{
@@ -35,7 +36,7 @@ public class Controller {
                     view.printHeader("Goodbye.");
                     break;
                 case DISPLAY_SOLARS:
-                    displaySolars();
+                    viewBySection();
                     break;
                 case CREATE_SOLAR:
                     createSolar();
@@ -55,6 +56,13 @@ public class Controller {
         SolarMaterial material = view.readSolarMaterial();
         List<Solar> solars = service.findByMaterial(material);
         view.displaySolars(solars);
+    }
+
+    private void viewBySection() throws  DataAccessException {
+        view.printHeader("View panels in a section");
+        String section = view.readSection();
+        List<Solar> panels = service.findBySection(section);
+        view.printPanels(section, panels);
     }
 
     private void createSolar() throws DataAccessException {

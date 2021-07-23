@@ -77,4 +77,9 @@ public class SolarRepositoryDouble implements SolarRepository {
     public boolean deleteById(int solarId) throws DataAccessException {
         return true;
     }
+
+    @Override
+    public List<Solar> findBySection(String section) throws DataAccessException {
+        return new ArrayList<>(solars);
+    }
 }
